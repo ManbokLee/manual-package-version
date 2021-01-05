@@ -1,0 +1,23 @@
+{
+  "name": "manual-package-version",
+  "version": "1.0.0",
+  "private": false,
+  "description": "package.json version manual update",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode=production",
+    "test": "node index.js"
+  },
+  "keywords": [
+    "package",
+    "version",
+    "update",
+    "manual"
+  ],
+  "author": {
+    "name": "Manbok Lee",
+    "email": "dlakdks0@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {}
+}

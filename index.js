@@ -30,11 +30,11 @@ function init () {
       return;
     }
     newVersions = {
-      first: (Number(versions[0]) + 1) + '.0.0',
-      middle: versions[0] + '.' + (Number(versions[1]) + 1) + '.0',
-      tail: versions[0] + '.' + Number(versions[1]) + '.' + (Number(versions[2]) + 1)
+      major: (Number(versions[0]) + 1) + '.0.0',
+      minor: versions[0] + '.' + (Number(versions[1]) + 1) + '.0',
+      patch: versions[0] + '.' + versions[1] + '.' + (Number(versions[2]) + 1)
     }
-    viewOptions(version, newVersions);
+    viewOptions();
     inputCommand();
   })
 }
@@ -44,9 +44,9 @@ function viewOptions () {
   console.log('Now version is ' + version);
   console.log('What do you need?');
   console.log('-------------------------------------');
-  console.log('1. Update major version => ' + newVersions.first);
-  console.log('2. Update minor version => ' + newVersions.middle);
-  console.log('3. Update patch version => ' + newVersions.tail);
+  console.log('1. Update major version => ' + newVersions.major);
+  console.log('2. Update minor version => ' + newVersions.minor);
+  console.log('3. Update patch version => ' + newVersions.patch);
   console.log('4. None => ' + version);
   console.log('-------------------------------------');
 }
@@ -80,13 +80,13 @@ function updateVersion () {
   }
   switch (choice) {
     case 1:
-      jsonData.version = newVersions.first;
+      jsonData.version = newVersions.major;
       break
     case 2:
-      jsonData.version = newVersions.middle;
+      jsonData.version = newVersions.minor;
       break
     case 3:
-      jsonData.version = newVersions.tail;
+      jsonData.version = newVersions.patch;
       break
   }
   fs.writeFileSync('package.json', JSON.stringify(jsonData, null, 2));

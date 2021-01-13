@@ -23,10 +23,15 @@ npx manual-package-version
 - scripts in package.json
 ```
 {
-  "update:version": "npx manual-package-version",
-  "deploy": "yarn update:version && [your deploy scripts]"
+  "scripts" : {
+    "update:version": "npx manual-package-version",
+    "deploy": "yarn update:version && [your deploy scripts]"
+  }
 }
 ```
+
+### Tests
+Clone the repo, and run npm test
 
 ### Todo list
 - Support formats of different types.
